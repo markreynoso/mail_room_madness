@@ -1,5 +1,7 @@
 """This file contains psuedocode for writing thank you notes to non-profit donors"""
 
+import sys
+
 donor_data = [{'name': 'Phil Collins', 'donations': [25, 45, 76, 100]}, {'name': 'Sven Sunguaard', 'donations': [50, 1000, 76, 1400]}]
 
 # def main():
@@ -17,23 +19,30 @@ def populate_dictionary(name, donation):
 
 populate_dictionary('Paul Miller', 10000)
 
-# def prompt_user():
-#     returns two options to user:
-#     send_thank_you()
-#     create_report()
-#     if quit:
-#         exit()
 
-# def send_thank_you():
-#     """This function will send a personalized thank you not to the user."""
-#     prompt for full name input
-#     if list is input:
-#         show list of names
-#     elif name:
-#         use it
-#     else:
-#         add name to dictionary and use it
-#     select_amount()
+def prompt_user():
+    response = input('Welcome! What would you like to do? Write TY to send a thank you note to a donor, or CR to create a donation report. If you are here by mistake, just type Q to exit.')
+    if response == 'TY':
+        send_thank_you()
+    elif response == 'CR':
+        create_report()
+    elif response == 'Q':
+        sys.exit()
+    else:
+        print('Please type a valid input')
+        prompt_user()
+        
+
+def send_thank_you():
+    """This function will send a personalized thank you not to the user."""
+    prompt for full name input
+    if list is input:
+        show list of names
+    elif name:
+        use it
+    else:
+        add name to dictionary and use it
+    select_amount()
 
 # def select_amount():
 #     """This function recieves the donation amount of a selected individual"""
