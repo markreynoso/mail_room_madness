@@ -10,9 +10,9 @@ setup(
     author_email='kavdyjh@gmail.com mreynoso@spu.edu',
     py_modules=['mail_room_madness'],
     install_requires=[],
-    extras_requires={
+    extras_require={
         'testing': ['pytest', 'pytest-cov', 'pytest-watch', 'tox'],
-        'development': ['ipython']
+        'development': ['ipython', 'faker']
     },
     entry_points={
         'console_scripts': [
