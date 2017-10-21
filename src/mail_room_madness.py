@@ -17,7 +17,7 @@ def populate_dictionary(name, donation):
             break
     print (donor_data)
 
-populate_dictionary('Paul Miller', 10000)
+#populate_dictionary('Paul Miller', 10000)
 
 
 def prompt_user():
@@ -35,11 +35,17 @@ def prompt_user():
 
 def send_thank_you():
     """This function will send a personalized thank you not to the user."""
+    full_name = input('Please enter name or type list for a list of donors')
     prompt for full name input
-    if list is input:
-        show list of names
-    elif name:
-        use it
+    if full_name.lower() == 'list':
+        for i in range(len(donor_data)):
+            print(donor_data[i]['name'])
+        send_thank_you()    
+    elif len(full_name.split()) == 2:
+        donation_amount = input('Please enter donation amount')
+
+
+        
     else:
         add name to dictionary and use it
     select_amount()
