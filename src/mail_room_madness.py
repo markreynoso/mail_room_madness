@@ -18,6 +18,13 @@ def populate_dictionary(name, donation):
     print (donor_data)
 
 # populate_dictionary('Phil Collins', 10000)
+
+
+def send_thank_you(full_name, donation_amount):
+    """This function will send a personalized thank you not to the user."""
+    print('Thank you, {}, for your generous donation of ${}. Your support is making a difference in our community.'.format(full_name, donation_amount))
+
+
 def set_thank_you_amount(full_name):
     donation_amount = input('Please enter donation amount')
     if donation_amount.isalpha():
@@ -25,6 +32,7 @@ def set_thank_you_amount(full_name):
         set_thank_you_amount(full_name)
     else:
         populate_dictionary(full_name, int(donation_amount))
+        send_thank_you(full_name, donation_amount)
 
 
 def find_thank_you_donor():
@@ -51,15 +59,6 @@ def prompt_user():
 prompt_user()
 
 
-# find_thank_you_donor()
-
-
-
-
-
-
-# def send_thank_you():
-    # """This function will send a personalized thank you not to the user."""
 
 
         
