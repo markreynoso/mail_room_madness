@@ -2,28 +2,45 @@
 
 import sys
 
-donor_data = [{'name': 'Phil Collins', 'donations': [25, 45, 76, 100]}, {'name': 'Sven Sunguaard', 'donations': [50, 1000, 76, 1400]}]
+
+donor_data = {'Phil Collins':[25, 45, 76, 100], 'Sven Sunguaard': [50, 1000, 76, 1400]}
+
 
 # def main():
 #     call all the things
 
 def populate_dictionary(name, donation):
     """This function creates a dictionary of donors with names and giving amounts as key-value pairs. """
-    for i in range(len(donor_data)):
-        if donor_data[i]['name'] == name:
-            donor_data[i]['donations'].append(donation)
-        else:
-            donor_data.append({'name': name, 'donations': [donation]})
-            break
+    try:
+        donor_data[name].append(donation)
+    except KeyError:
+        donor_data[name] = [donation]
     print (donor_data)
 
-#populate_dictionary('Paul Miller', 10000)
+# populate_dictionary('Phil Collins', 10000)
+def set_thank_you_amount(full_name):
+    donation_amount = input('Please enter donation amount')
+    if donation_amount.isalpha():
+        print("Please enter a number.")
+        set_thank_you_amount(full_name)
+    else:
+        populate_dictionary(full_name, int(donation_amount))
+
+
+def find_thank_you_donor():
+    full_name = input('Please enter name or type list for a list of donors')
+    if full_name.lower() == 'list':
+        for i in donor_data:
+            print(i)
+        find_thank_you_donor()
+    else:
+        set_thank_you_amount(full_name)
 
 
 def prompt_user():
     response = input('Welcome! What would you like to do? Write TY to send a thank you note to a donor, or CR to create a donation report. If you are here by mistake, just type Q to exit.')
     if response == 'TY':
-        send_thank_you()
+        find_thank_you_donor()
     elif response == 'CR':
         create_report()
     elif response == 'Q':
@@ -31,24 +48,24 @@ def prompt_user():
     else:
         print('Please type a valid input')
         prompt_user()
+prompt_user()
+
+
+# find_thank_you_donor()
+
+
+
+
+
+
+# def send_thank_you():
+    # """This function will send a personalized thank you not to the user."""
+
+
         
-
-def send_thank_you():
-    """This function will send a personalized thank you not to the user."""
-    full_name = input('Please enter name or type list for a list of donors')
-    prompt for full name input
-    if full_name.lower() == 'list':
-        for i in range(len(donor_data)):
-            print(donor_data[i]['name'])
-        send_thank_you()    
-    elif len(full_name.split()) == 2:
-        donation_amount = input('Please enter donation amount')
-
-
-        
-    else:
-        add name to dictionary and use it
-    select_amount()
+#     else:
+#         add name to dictionary and use it
+#     select_amount()
 
 # def select_amount():
 #     """This function recieves the donation amount of a selected individual"""
