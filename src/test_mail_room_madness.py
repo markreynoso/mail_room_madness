@@ -21,8 +21,8 @@ import pytest
 # ]
 
 # @pytest.mark.parametrize('a, b', data)
-def test_populate_dictionary(a, b):
+def test_populate_dictionary():
     from mail_room_madness import populate_dictionary
-    
     # for i in data:
-    assert type(populate_dictionary('Bob Barker', 40)) == dict
+    testing = populate_dictionary('Bob Barker', 40)
+    assert testing['Bob Barker'] == 40
