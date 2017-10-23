@@ -11,7 +11,7 @@ def main(): #pragma: no cover
 
 
 def populate_dictionary(name, donation): #pragma: no cover
-    """This function creates a dictionary of donors with names and giving amounts as key-value pairs. """
+    """This function creates a dictionary of donors with names and giving amounts as key-value pairs."""
     try:
         donor_data[name].append(donation)
     except KeyError:
@@ -19,10 +19,9 @@ def populate_dictionary(name, donation): #pragma: no cover
     return donor_data
 
 
-def send_thank_you(full_name, donation_amount): #pragma: no cover
+def send_thank_you(full_name, donation_amount):
     """This function will send a personalized thank you not to the user."""
-    print('\nDear {},\n Thank you for your generous donation of ${}. Your support is making a difference in our community.\nSincerely,\nMark and Kavdi\nDirectors of Good\n'.format(full_name, donation_amount))
-    prompt_user()
+    return ('\nDear {},\n Thank you for your generous donation of ${}. Your support is making a difference in our community.\nSincerely,\nMark and Kavdi\nDirectors of Good\n'.format(full_name, donation_amount)) 
 
 
 def set_thank_you_amount(full_name): #pragma: no cover
@@ -33,7 +32,9 @@ def set_thank_you_amount(full_name): #pragma: no cover
         set_thank_you_amount(full_name)
     else:
         populate_dictionary(full_name, int(donation_amount))
-        send_thank_you(full_name, donation_amount)
+        letter = send_thank_you(full_name, donation_amount)
+        print(letter)
+        prompt_user()
 
 
 def find_thank_you_donor(): #pragma: no cover
@@ -47,7 +48,7 @@ def find_thank_you_donor(): #pragma: no cover
         set_thank_you_amount(full_name)
 
 
-def create_report(): #pragma: no cover
+def create_report():
     """This function prints a report of the giving history of all donors with their names."""
     from tabulate import tabulate
     holder_list = []
@@ -56,8 +57,7 @@ def create_report(): #pragma: no cover
         num_gifts = len(donor_data[person])
         avg = total / num_gifts
         holder_list.append([person, total, num_gifts, avg])
-    print (tabulate(holder_list, headers=['Name', 'Total Giving', '# Gifts', 'Avg Donation']))
-    prompt_user()
+    return (tabulate(holder_list, headers=['Name', 'Total Giving', '# Gifts', 'Avg Donation']))
 
 
 def prompt_user(): #pragma: no cover
@@ -66,7 +66,9 @@ def prompt_user(): #pragma: no cover
     if response == 'TY':
         find_thank_you_donor()
     elif response == 'CR':
-        create_report()
+        report = create_report()
+        print(type(report))
+        prompt_user()
     elif response == 'Q':
         sys.exit()
     else:
