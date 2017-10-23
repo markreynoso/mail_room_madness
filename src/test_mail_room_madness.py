@@ -19,9 +19,10 @@ def test_populate_dictionary(a, b):
         output = populate_dictionary(a, b)
         assert output[a][0] == b
 
+
 @pytest.mark.parametrize('a, b', DATA)
 def test_populate_dictionary_type(a, b):
-    """ensures that populate_dictionary() returns added value to dict"""
+    """Ensures that populate_dictionary() returns added value to dict"""
     from mail_room_madness import populate_dictionary
     for i in range(4):
         output = populate_dictionary(a, b)
@@ -38,7 +39,7 @@ THANKS = [
 
 @pytest.mark.parametrize('a, b, result', THANKS)
 def test_send_thank_you(a, b, result):
-    """tests a non-numericalal value in send_thank_you()"""
+    """Tests a personalized thank you note via send_thank_you()."""
     from mail_room_madness import send_thank_you
     assert send_thank_you(a, b) == result
 
