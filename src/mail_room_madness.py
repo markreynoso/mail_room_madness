@@ -10,34 +10,35 @@ def main(): #pragma: no cover
     prompt_user()
 
 
-def populate_dictionary(name, donation):
+def populate_dictionary(name, donation): #pragma: no cover
     """This function creates a dictionary of donors with names and giving amounts as key-value pairs. """
     try:
         donor_data[name].append(donation)
     except KeyError:
         donor_data[name] = [donation]
-    print (donor_data)
+    return donor_data
 
 
-def send_thank_you(full_name, donation_amount):
+def send_thank_you(full_name, donation_amount): #pragma: no cover
     """This function will send a personalized thank you not to the user."""
-    print('Thank you, {}, for your generous donation of ${}. Your support is making a difference in our community.'.format(full_name, donation_amount))
+    print('\nDear {},\n Thank you for your generous donation of ${}. Your support is making a difference in our community.\nSincerely,\nMark and Kavdi\nDirectors of Good\n'.format(full_name, donation_amount))
+    prompt_user()
 
 
-def set_thank_you_amount(full_name):
+def set_thank_you_amount(full_name): #pragma: no cover
     """This function allows the user to set a donation amount for each donor"""
-    donation_amount = input('Please enter donation amount')
+    donation_amount = input('\nPlease enter donation amount.\n')
     if donation_amount.isalpha():
-        print("Please enter a number.")
+        print('\nPlease enter a number.\n')
         set_thank_you_amount(full_name)
     else:
         populate_dictionary(full_name, int(donation_amount))
         send_thank_you(full_name, donation_amount)
 
 
-def find_thank_you_donor():
+def find_thank_you_donor(): #pragma: no cover
     """This function allows the user to access a list of donor names or create a new donor name"""
-    full_name = input('Please enter name or type list for a list of donors')
+    full_name = input('\nPlease do one of the following:\n- Enter a donors name to input donation amount\n- Enter a new donor name to create an account\n- Type list to show all current donors.\n')
     if full_name.lower() == 'list':
         for i in donor_data:
             print(i)
@@ -46,7 +47,7 @@ def find_thank_you_donor():
         set_thank_you_amount(full_name)
 
 
-def create_report():
+def create_report(): #pragma: no cover
     """This function prints a report of the giving history of all donors with their names."""
     from tabulate import tabulate
     holder_list = []
@@ -59,9 +60,9 @@ def create_report():
     prompt_user()
 
 
-def prompt_user():
+def prompt_user(): #pragma: no cover
     """This function gives instructions to the user and provides options for use"""
-    response = input('Welcome! What would you like to do? Write TY to send a thank you note to a donor, or CR to create a donation report. If you are here by mistake, just type Q to exit.')
+    response = input('\nWelcome to your donor management center.\nWhat would you like to do?\n\nType:\n- TY to send a thank you note to a donor\n- CR to create a donation report\n- Q to exit.\n')
     if response == 'TY':
         find_thank_you_donor()
     elif response == 'CR':
@@ -69,7 +70,7 @@ def prompt_user():
     elif response == 'Q':
         sys.exit()
     else:
-        print('Please type a valid input')
+        print('\nPlease type a valid input\n')
         prompt_user()
 
 
