@@ -18,3 +18,11 @@ def test_populate_dictionary(a, b):
     for i in range(4):
         output = populate_dictionary(a, b)
         assert output[a][0] == b
+
+@pytest.mark.parametrize('a, b', DATA)
+def test_populate_dictionary_type(a, b):
+    """ensures that populate_dictionary() returns added value to dict"""
+    from mail_room_madness import populate_dictionary
+    for i in range(4):
+        output = populate_dictionary(a, b)
+        assert type(output) == dict
