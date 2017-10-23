@@ -9,7 +9,7 @@ setup(
     author='Mark and Kavdi',
     author_email='kavdyjh@gmail.com mreynoso@spu.edu',
     py_modules=['mail_room_madness'],
-    install_requires=[],
+    install_requires=['tabulate'],
     extras_require={
         'testing': ['pytest', 'pytest-cov', 'pytest-watch', 'tox'],
         'development': ['ipython', 'faker']
