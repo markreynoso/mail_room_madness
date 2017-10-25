@@ -1,4 +1,5 @@
-"""This file tests the mail_room_madness module"""
+"""Test the mail_room_madness module."""
+
 
 import pytest
 
@@ -13,7 +14,7 @@ DATA = [
 
 @pytest.mark.parametrize('a, b', DATA)
 def test_populate_dictionary(a, b):
-    """Ensures that populate_dictionary() returns added value to dict"""
+    """Ensure that populate_dictionary() returns added value to dict."""
     from mail_room_madness import populate_dictionary
     for i in range(4):
         output = populate_dictionary(a, b)
@@ -22,7 +23,7 @@ def test_populate_dictionary(a, b):
 
 @pytest.mark.parametrize('a, b', DATA)
 def test_populate_dictionary_type(a, b):
-    """Ensures that populate_dictionary() returns added value to dict"""
+    """Ensure that populate_dictionary() returns dict type."""
     from mail_room_madness import populate_dictionary
     for i in range(4):
         output = populate_dictionary(a, b)
@@ -39,7 +40,7 @@ THANKS = [
 
 @pytest.mark.parametrize('a, b, result', THANKS)
 def test_send_thank_you(a, b, result):
-    """Tests a personalized thank you note via send_thank_you()."""
+    """Test a personalized thank you note via send_thank_you()."""
     from mail_room_madness import send_thank_you
     assert send_thank_you(a, b) == result
 
@@ -52,7 +53,7 @@ NAMES = [
 
 @pytest.mark.parametrize('result', NAMES)
 def test_names_in_create_report(result):
-    """Tests if database names are included in create_report()."""
+    """Test if database names are included in create_report()."""
     from mail_room_madness import create_report
     out = create_report()
     assert out.find(result)
@@ -72,7 +73,7 @@ AMT = [
 
 @pytest.mark.parametrize('result', AMT)
 def test_donation_amounts_in_create_report(result):
-    """Tests if each donation is included in create_report()."""
+    """Test if each donation is included in create_report()."""
     from mail_room_madness import create_report
     out = create_report()
     assert out.find(result)
@@ -86,7 +87,7 @@ AVG = [
 
 @pytest.mark.parametrize('result', AVG)
 def test_avg_donation_in_create_report(result):
-    """Tests if the average donation amount is included in create_report()."""
+    """Test if the average donation amount is included in create_report()."""
     from mail_room_madness import create_report
     out = create_report()
     assert out.find(result)
