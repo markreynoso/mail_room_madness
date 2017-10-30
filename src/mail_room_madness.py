@@ -37,14 +37,14 @@ def send_thank_you(full_name, donation_amount):
 def set_thank_you_amount(full_name):  # pragma: no cover
     """Allow the user to set a donation amount for each donor."""
     donation_amount = input('\nPlease enter donation amount.\n')
-    if donation_amount.isalpha():
-        print('\nPlease enter a number.\n')
-        set_thank_you_amount(full_name)
-    else:
+    if donation_amount.isnumeric():
         populate_dictionary(full_name, int(donation_amount))
         letter = send_thank_you(full_name, donation_amount)
         print(letter)
         prompt_user()
+    else:
+        print('\nPlease enter a number.\n')
+        set_thank_you_amount(full_name)
 
 
 def find_thank_you_donor():  # pragma: no cover
