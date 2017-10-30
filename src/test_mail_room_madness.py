@@ -31,10 +31,18 @@ def test_populate_dictionary_type(a, b):
 
 
 THANKS = [
-    ('Chill Dude', 30, '\nDear Chill Dude,\n Thank you for your generous donation of $30. Your support is making a difference in our community.\nSincerely,\nMark and Kavdi\nDirectors of Good\n'),
-    ('Bill Goat', 300, '\nDear Bill Goat,\n Thank you for your generous donation of $300. Your support is making a difference in our community.\nSincerely,\nMark and Kavdi\nDirectors of Good\n'),
-    ('Ed Ucation', 9000, '\nDear Ed Ucation,\n Thank you for your generous donation of $9000. Your support is making a difference in our community.\nSincerely,\nMark and Kavdi\nDirectors of Good\n'),
-    ('Friend Ly', 1, '\nDear Friend Ly,\n Thank you for your generous donation of $1. Your support is making a difference in our community.\nSincerely,\nMark and Kavdi\nDirectors of Good\n')
+    ('Chill Dude', 30, '\nDear Chill Dude,\n Thank you for your generous '
+     'donation of $30. Your support is making a difference in our community.\n'
+     'Sincerely,\nMark and Kavdi\nDirectors of Good\n'),
+    ('Bill Goat', 300, '\nDear Bill Goat,\n Thank you for your generous '
+     'donation of $300. Your support is making a difference in our '
+     'community.\nSincerely,\nMark and Kavdi\nDirectors of Good\n'),
+    ('Ed Ucation', 9000, '\nDear Ed Ucation,\n Thank you for your generous '
+     'donation of $9000. Your support is making a difference in our '
+     'community.\nSincerely,\nMark and Kavdi\nDirectors of Good\n'),
+    ('Friend Ly', 1, '\nDear Friend Ly,\n Thank you for your generous '
+     'donation of $1. Your support is making a difference in our community.\n'
+     'Sincerely,\nMark and Kavdi\nDirectors of Good\n')
 ]
 
 
